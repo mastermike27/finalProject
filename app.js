@@ -90,7 +90,7 @@ function sectionActivation() {
 
 
 window.addEventListener('scroll', sectionActivation);
-
+// In this one I am trying to target the id and pass it in to control the scrolling. 
 // const smoothScroll = document.getElementById('navbar_list').addEventListener('click', function (e) {
 //     e.preventDefault();
 //     const target = e.target;
@@ -99,6 +99,8 @@ window.addEventListener('scroll', sectionActivation);
 //         document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
 //     };
 // });
+
+// This one I am using the same code I used to create the navUI in order to add the smooth scrolling it.
 // nav.addEventListener('click', "scroll", (e) => {
 //         smoothScroll(e);
 //     });
@@ -109,6 +111,9 @@ window.addEventListener('scroll', sectionActivation);
 //     landingContainer.scrollIntoView({ behavior: "smooth"});
 // };
 // };
+
+//This one I am trying to target the href like I saw on the w3 page and then using code from my previous work  
+// to add the scroll
 // const smoothScroll = () => {
 //     document.querySelectorAll(".menu__link").forEach((anchor) => {
 //         anchor.addEventListener('click', function(e){
