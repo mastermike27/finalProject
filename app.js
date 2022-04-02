@@ -22,13 +22,15 @@
  * Define Global Variables
  * 
 */
-
-
+const navigation = document.querySelector('#navbar__list');
+const sections = document.querySelectorAll('section');
+const link = document.querySelectorAll('.navbar_menu a');
 /**
  * End Global Variables
  * Start Helper Functions
  * 
 */
+
 
 
 
@@ -39,23 +41,80 @@
 */
 
 // build the nav
+const navBuildBar = () => {
+
+    let navUI = '';
+  
+    sections.forEach(section => {
+
+        const sectionID = section.id;
+        const sectionDataNav = section.dataset.nav;
+
+        navUI += `<li><a class="menu__link" href="#${sectionID}">${sectionDataNav}</a></li>`;
+
+    });
+  
+   navigation.innerHTML = navUI;
 
 
-// Add class 'active' to section when near top of viewport
+
+};
+
+navBuildBar();
+
+ const offset =  function isInViewport (section) {
+    return Math.floor( section.getBoundingClientRect().top);
+    
+ };
+
+const removeActive =(section) => {
+    section.classList.remove("your-active-class");
+    section.style.backgroundColor = "black";
+};
+const addActive = (conditional, section) => {
+    if(conditional){ section.classList.add("your-active-class");
+    section.style.backgroundColor = "white";
+};
+}
+    
+function sectionActivation() {
+    sections.forEach(sections => {
+        const elementOffset = offset(sections);
+        isInViewport = () => elementOffset < 100 && elementOffset >= -100;
+        removeActive(sections);
+        addActive(isInViewport(), sections);
+
+    });
+};
 
 
-// Scroll to anchor ID using scrollTO event
 
+window.addEventListener('scroll', sectionActivation);
 
-/**
- * End Main Functions
- * Begin Events
- * 
-*/
-
-// Build menu 
-
-// Scroll to section on link click
-
-// Set sections as active
-
+// const smoothScroll = document.getElementById('navbar_list').addEventListener('click', function (e) {
+//     e.preventDefault();
+//     const target = e.target;
+//     if (target.classList.contains('landing_container')) {
+//         const id = target.getAttribute.sections;
+//         document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+//     };
+// });
+// nav.addEventListener('click', "scroll", (e) => {
+//         smoothScroll(e);
+//     });
+// smoothScroll(e);{
+// if(e.target.nodeName === "A"){
+//     let sectionScroll = e.target.getAttribute('data-id');
+//     let landingContainer = document.getElementById(sectionID);
+//     landingContainer.scrollIntoView({ behavior: "smooth"});
+// };
+// };
+// const smoothScroll = () => {
+//     document.querySelectorAll(".menu__link").forEach((anchor) => {
+//         anchor.addEventListener('click', function(e){
+//             e.preventDefault();
+//             document.querySelector(anchor.getAttribute("href")).scrollIntoView({ behavior: 'smooth' });
+        
+//         });
+//     });
+// }
