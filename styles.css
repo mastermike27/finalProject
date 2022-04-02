@@ -16,8 +16,11 @@ body {
     margin: 0;
     font-family: 'Merriweather', serif;
     color: #fff;
+    
 }
-
+ html {
+    scroll-behavior: smooth;
+}  
 
 /* Typeography General*/
 h1 {
