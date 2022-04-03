@@ -22,46 +22,79 @@
  * Define Global Variables
  * 
 */
-const navigation = document.querySelector('#navbar__list');
+const navigationBar = document.getElementById('navbar__list');
 const sections = document.querySelectorAll('section');
-const fragment = document.createDocumentFragment();
-// I was using this for the scrolling feature but did it with html css instead.
-// const link = document.querySelectorAll('.navbar_menu a');
 
 
-// build the nav out completely using the list  and menu link to append to navUI array.
-function navBuildBar() {
-    // storing the information for the sections
-    let navBar = '';
 
-    sections.forEach(section => {
-        //defining the variables to feed into the navUI list by pulling section ID and datasets
-        const secListId = section.id;
-        const navData = section.dataset.nav;
 
-        navBar += `<li><a class="menu__link" href="#${secListId}">${navData}</a></li>`;
 
-    });
-    //   Appending this to the navBar
-     navigation.innerHTML = navBar;
-  fragment.append(navBar);
-
-}
-// calling the navbar function before doing the next set of code.
-navBuildBar();
-
-// getting the information from the viewport to feed into the active and none active state
- const offset =  function isInViewport (section) {
-    return Math.floor( section.getBoundingClientRect().top);
+const navBarBuilder=() => {
+  
     
- };
-// removing the active status when it is no longer in the view port, defining the const
-const removeActive =(section) => {
+  for(let i = 0; i < sections.length; i++) {
+    const menuList = document.createElement('li');
+    const secListId = sections[i].getAttribute('data-nav');
+    const navData =sections[i].getAttribute('id');
+    menuList.innerHTML= `<a class="menu__link" href="#${secListId}">${navData}</a>`;
+    
+    navigationBar.appendChild(menuList);
+
+    };
+};
+    // attempts to append various elements
+    // menuList.appendChild(navBar);
+    // document.appendChild(menuList);
+    // menuList.appendChild(fragment);
+
+    // navigationBar.innerHTML = navBar;
+    // element.appendChild(navBarList);
+    // element.appendChild(menuNav,menuA,menuList);
+
+
+navBarBuilder();
+
+const offset =  function isInViewport (section) {
+return Math.floor( section.getBoundingClientRect().top);
+};
+
+                            //    Old Code building nav ////
+// // build the nav out completely using the list  and menu link to append to navUI array.
+// function navBuildBar() {
+//     // storing the information for the sections
+//     let navBar = '';
+
+//     sections.forEach(section => {
+//         //defining the variables to feed into the navUI list by pulling section ID and datasets
+//         const secListId = section.id;
+//         const navData = section.dataset.nav;
+
+//         // navBar += `<li><a class="menu__link" href="#${secListId}">${navData}</a></li>`;
+
+//     });
+//     //   Appending this to the navBar
+//     //  navigationBar.innerHTML = navBar;
+//   fragment.append(navBar);
+
+
+// calling the navbar function before doing the next set of code.
+// navBuildBar();
+
+
+
+
+//getting the information from the viewport to feed into the active and none active state
+//  const offset =  function isInViewport (section) {
+//     return Math.floor( section.getBoundingClientRect().top);
+    
+
+//removing the active status when it is no longer in the view port, defining the const
+function removeActive(section) {
     // removing the section from the class list
     section.classList.remove("your-active-class");
     //changing the color to black when not active in the viewport
     section.style.backgroundColor = "black";
-};
+}
 //making the the section active when it shows up in the view port setting the const
 const addActive = (conditional, section) => {
     //if statement for setting the class active and adding to the classlist
@@ -88,6 +121,7 @@ function sectionActivation() {
 
 //adding listeners for the scroll feature and the activation functions
 
+window.addEventListener("click", sectionActivation);
 window.addEventListener('scroll', sectionActivation);
 
                     //Below are attempts at adding the scroll via javascript//
@@ -125,4 +159,4 @@ window.addEventListener('scroll', sectionActivation);
         
 //         });
 //     });
-// }
+
