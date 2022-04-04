@@ -50,6 +50,8 @@ const navBarBuilder=() => {
 navBarBuilder();
 
 // function to get the position in the view port
+// this code is pulled from open source not another students work //////////////////////////////////
+//referred from javascripttutorial.net https://www.javascripttutorial.net/dom/css/check-if-an-element-is-visible-in-the-viewport/
 function isInViewport(view) {
     const rect = view.getBoundingClientRect();
     return (
