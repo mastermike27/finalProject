@@ -51,40 +51,63 @@ navBarBuilder();
 
 // function to get the position in the view port
 // this code is pulled from open source not another students work //////////////////////////////////
-//referred from javascripttutorial.net && https://stackoverflow.com/questions/123999/how-can-i-tell-if-a-dom-element-is-visible-in-the-current-viewport 4/25/2022
+//referred from https://www.javascripttutorial.net/dom/css/check-if-an-element-is-visible-in-the-viewport/ 4/30/2022 && https://stackoverflow.com/questions/123999/how-can-i-tell-if-a-dom-element-is-visible-in-the-current-viewport 4/25/2022
 function isInViewport(view) {
     const rect = view.getBoundingClientRect();
-     return Math.abs(rect.top >= 0 && window.innerHeight) <= rect.bottom && window.innerWidth;
-    
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+       
+    );
 }
+
+
+// function isInViewport(view) {
+//     const rect = view.getBoundingClientRect();
+//      return Math.abs(rect.top >= 0 && window.innerHeight) <= rect.bottom && window.innerWidth;
+    
+// }
 //function to activate or apply or remove the active class depending on position
 sectionActivation =()=> {
     sections.forEach(section => {
         let classList = section.classList;
+        console.log(isInViewport(section));
                if (isInViewport(section)){
             section.classList.add("your-active-class");
 //'changing color of the class when active in view port
         section.style.backgroundColor ="black";
+      
+        
 
             }else{
             section.classList.remove("your-active-class");
             //setting color for when not i the view port
-            section.style.backgroundColor = "blue";
+            // section.style.backgroundColor = "blue";
         }
      });
             
     };
     // extra code for if I need to create smooth scroll in javascript
-    // document.querySelectorAll('a[href^="#section1"]').forEach(anchor => {
-    // anchor.addEventListener('click', function (e) {
-    //     e.preventDefault();
-    //     // document.querySelector(this.getAttribute('href')).scrollIntoView({
-    //     //     behavior: 'smooth'
-    //     });
-    // });
+    document.querySelectorAll('a[href^="#section"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+         document.querySelector(this.getAttribute('href')).scrollIntoView({
+           behavior: 'smooth'
+        });
+     });
 
 //listener for the scroll and section activation functions
 window.addEventListener('scroll', sectionActivation);
 
-                    
+menuList.addEventListener('click', function onClick() {
+menuList.style.backgroundColor = 'salmon';
+  menuList.style.color = 'white';
+});
 
+                   
+  
+
+});
+   
