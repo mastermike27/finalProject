@@ -68,7 +68,7 @@ const navBarBuilder=() => {
     };
     
 };
-
+//this is the code for the highlight tab on scroll entering the viewport//
 window.addEventListener("scroll", () => {
   let current = "";
   sections.forEach((section) => {
@@ -78,9 +78,10 @@ window.addEventListener("scroll", () => {
       current = section.getAttribute("id");
     }
   });
+  //this code is for assigning a class to li so I can target it//
 let li = document.querySelector('#section1');
 li.classList.add('home','active');
-
+//This code changes the current target to active after removing the previous state//
   navLi.forEach((li) => {
     // li.classList.remove("active");
     if (li.classList.contains(current)) {
