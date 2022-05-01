@@ -25,7 +25,7 @@
 //variables to get the information from the nav and sections 
 const navigationBar = document.getElementById('navbar__list');
 const sections = document.querySelectorAll('section');
-
+const btn = document.getElementById("menu_link");
 
 
 
@@ -39,13 +39,13 @@ const navBarBuilder=() => {
     //getting id and data nav information to pass into the menulist inner html
     const secListId = sections[i].getAttribute('id');
     const navData =sections[i].getAttribute('data-nav');
-    menuList.innerHTML= `<a class="menu__link" href="#${secListId}">${navData}</a>`;
+    menuList.innerHTML= `<a class="menu__link" "active" href="#${secListId}">${navData}</a>`;
     //appending the li, menulist to the navigation bar
     navigationBar.appendChild(menuList);
 
     };
 };
-  
+
 //build navigation bar
 navBarBuilder();
 
@@ -76,8 +76,10 @@ sectionActivation =()=> {
         console.log(isInViewport(section));
                if (isInViewport(section)){
             section.classList.add("your-active-class");
+            
 //'changing color of the class when active in view port
         section.style.backgroundColor ="black";
+       
       
         
 
@@ -89,6 +91,7 @@ sectionActivation =()=> {
      });
             
     };
+    
     // extra code for if I need to create smooth scroll in javascript
     document.querySelectorAll('a[href^="#section"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -101,13 +104,6 @@ sectionActivation =()=> {
 //listener for the scroll and section activation functions
 window.addEventListener('scroll', sectionActivation);
 
-menuList.addEventListener('click', function onClick() {
-menuList.style.backgroundColor = 'salmon';
-  menuList.style.color = 'white';
-});
+    })
 
-                   
-  
-
-});
    
