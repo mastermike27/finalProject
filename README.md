@@ -13,18 +13,18 @@ Open index.html file and make sure css and js folders in same folder of index.ht
 
 ## Usage
 
-```JavaScript
+## JavaScript
 reactivity of the website 
 
-##Html
+## Html
 Used for website structure
 
-##Css
+## Css
 Used to style the website
 
-##JQuery Library
-
-##Requirements 
+## JQuery Library
+Used in case of jQuery library features needed
+## Requirements 
 All features are usable across modern desktop, tablet, and phone browsers. Completed Styling has been added for active states. Completed with html Css There are at least 4 sections that have been added to the page. Completed with html
 
 Navigation is built dynamically as an unordered list. Start with empty ul and dynamically build navigation using used the innerHTML to complete
@@ -43,12 +43,12 @@ sectionActivison
 ## Contributing
 Open to public for pulls
 
-##Cites
+## Cites
 Googleapis for jquery Library & fonts
 
 JavaScripttutorials.net for viewfinder code https://www.javascripttutorial.net/dom/css/check-if-an-element-is-visible-in-the-viewport/
 
-##Author
+## Author
 Donald Meeks student at udacity FEND scholarship program.
 
 ## License
