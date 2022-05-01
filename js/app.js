@@ -45,8 +45,8 @@
 //variables to get the information from the nav and sections 
 const navigationBar = document.getElementById('navbar__list');
 const sections = document.querySelectorAll('section');
-
-const navLi = document.querySelectorAll("nav .container ul li");
+//On scroll variables removed
+// const navLi = document.querySelectorAll("menu_link");
 
 
 //building out the navigation functions
@@ -69,27 +69,27 @@ const navBarBuilder=() => {
     
 };
 //this is the code for the highlight tab on scroll entering the viewport//
-window.addEventListener("scroll", () => {
-  let current = "";
-  sections.forEach((section) => {
-    const sectionTop = section.offsetTop;
-    const sectionHeight = section.clientHeight;
-    if (pageYOffset >= sectionTop - sectionHeight) {
-      current = section.getAttribute("id");
-    }
-  });
-  //this code is for assigning a class to li so I can target it//
-let li = document.querySelector('#section1');
-li.classList.add('home','active');
-//This code changes the current target to active after removing the previous state//
-  navLi.forEach((li) => {
-    // li.classList.remove("active");
-    if (li.classList.contains(current)) {
-      li.classList.add("active");
-    }
-  });
-  console.log(current);
-});
+// window.addEventListener("scroll", () => {
+//   let current = "";
+//   sections.forEach((section) => {
+//     const sectionTop = section.offsetTop;
+//     const sectionHeight = section.clientHeight;
+//     if (pageYOffset >= sectionTop - sectionHeight) {
+//       current = section.getAttribute('href');
+//     }
+//   });
+//   //this code is for assigning a class to li so I can target it//
+// let li = document.querySelector('#section1');
+// li.classList.add('home','active');
+// //This code changes the current target to active after removing the previous state//
+//   navLi.forEach((li) => {
+//      li.classList.remove("active");
+//     if (li.classList.contains(current)) {
+//       li.classList.add("active");
+//     }
+//   });
+//   console.log(current);
+// });
 //build navigation bar
 navBarBuilder();
 
@@ -140,6 +140,15 @@ sectionActivation =()=> {
     document.querySelectorAll('a[href^="#section"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
+
+        // this code marks the links active after removing the previous states
+        const allLinks = document.querySelectorAll('a[href^="#section"]');
+        allLinks.forEach(link=>{
+          link.classList.remove('active')
+        });
+        // adding the active class to the href to change the css
+        e.target.classList.add('active');
+        //smooth scroll behavior applied here
          document.querySelector(this.getAttribute('href')).scrollIntoView({
            behavior: 'smooth'
         });
