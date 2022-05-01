@@ -46,7 +46,7 @@
 const navigationBar = document.getElementById('navbar__list');
 const sections = document.querySelectorAll('section');
 
-const navLi = document.querySelectorAll(".navbar__menu .menu__link");
+const navLi = document.querySelectorAll("nav .container ul li");
 
 
 //building out the navigation functions
@@ -71,7 +71,7 @@ const navBarBuilder=() => {
 
 window.addEventListener("scroll", () => {
   let current = "";
-  section.forEach((section) => {
+  sections.forEach((section) => {
     const sectionTop = section.offsetTop;
     const sectionHeight = section.clientHeight;
     if (pageYOffset >= sectionTop - sectionHeight) {
