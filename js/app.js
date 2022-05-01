@@ -78,9 +78,11 @@ window.addEventListener("scroll", () => {
       current = section.getAttribute("id");
     }
   });
+let li = document.querySelector('#section1');
+li.classList.add('home','active');
 
   navLi.forEach((li) => {
-    li.classList.remove("active");
+    // li.classList.remove("active");
     if (li.classList.contains(current)) {
       li.classList.add("active");
     }
