@@ -31,7 +31,7 @@ Navigation is built dynamically as an unordered list. Start with empty ul and dy
 
 It should be clear which section is being viewed while scrolling through the page. Completed using JavaScript
 
-When clicking an item from the navigation menu, the link should scroll to the appropriate section. Completed using the CSS
+When clicking an item from the navigation menu, the link should scroll to the appropriate section. Completed using the Javascript
 
 ## Functions Tested
 createNav()
